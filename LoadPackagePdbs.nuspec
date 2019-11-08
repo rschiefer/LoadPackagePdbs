@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>LoadPackagePdbs</id>
+    <version>1.0.0</version>
+    <authors>Robb Schiefer</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Finds and copies pdbs to output directory based on PackageReferences which makes debugging Nuget package much easier.</description>
+
+  </metadata>
+  <files>
+    <file src="build\*" target="build" />
+  </files>
+</package>

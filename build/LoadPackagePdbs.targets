@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <Target Name="CopyPackagePdbToOutput" AfterTargets="Build">
+    <ItemGroup>
+      <PackagePdbs Include="$(NuGetPackageRoot)%(PackageReference.Identity)\%(PackageReference.Version)\**\*.pdb" />
+    </ItemGroup>
+    <Message Importance="high" Text="Package .pdb found - %(PackagePdbs.Identity)" />
+    <Message Importance="high" Text="Loading package pdbs..." />
+    <Copy Condition="'@(PackagePdbs)'!=''" SourceFiles="@(PackagePdbs)" DestinationFolder="$(OutDir)" />
+  </Target>
+
+</Project>
