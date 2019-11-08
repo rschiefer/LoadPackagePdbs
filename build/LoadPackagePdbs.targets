@@ -13,4 +13,10 @@
     <Copy Condition="'@(PackagePdbs)'!=''" SourceFiles="@(PackagePdbs)" DestinationFolder="$(OutDir)" />
   </Target>
 
+  <ItemGroup>
+    <None Condition="'%(PackageReference.Identity'=='LoadPackagePdbs'" Include="$(NuGetPackageRoot)\%(PackageReference.Identity)\%(PackageReference.Version)\build\*.targets">
+      <Pack>true</Pack>
+      <PackagePath>build\</PackagePath>
+    </None>
+  </ItemGroup>
 </Project>
