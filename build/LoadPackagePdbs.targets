@@ -1,6 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <Target Name="CopyPackagePdbToOutput" AfterTargets="Build">
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <CopyPackagePdbs>true</CopyPackagePdbs>
+  </PropertyGroup>
+  
+  <Target Name="CopyPackagePdbToOutput" Condition="'$(CopyPackagePdbs)'=='true'" AfterTargets="Build">
     <ItemGroup>
       <PackagePdbs Include="$(NuGetPackageRoot)%(PackageReference.Identity)\%(PackageReference.Version)\**\*.pdb" />
     </ItemGroup>
